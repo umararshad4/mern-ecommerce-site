@@ -11,11 +11,39 @@ export const getAllProducts = async (req: Request, res: Response, next: NextFunc
         next(error)
     }
 }
+// get a single product
+export const getSingleProduct = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const id = req.params.id
+        const product = await prisma.products.findUnique({
+            where: {
+                id
+            }
+        })
+        res.status(200).json(product)
+    } catch (error) {
+        next(error)
+    }
+}
 // get all the blogs
 export const getAllBlogs = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const blogs = await prisma.blogs.findMany()
         res.status(200).json(blogs)
+    } catch (error) {
+        next(error)
+    }
+}
+// get a single blogs
+export const getSingleBlog = async (req: Request, res: Response, next: NextFunction) => {
+    const id = req.params.id
+    try {
+        const blog = await prisma.blogs.findUnique({
+            where: {
+                id
+            }
+        })
+        res.status(200).json(blog)
     } catch (error) {
         next(error)
     }
