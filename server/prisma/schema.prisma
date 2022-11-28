@@ -19,5 +19,5 @@ model Blogs {
   image       String
   title       String
   description String
-  date        DateTime
+  date        DateTime @default(now())
 }

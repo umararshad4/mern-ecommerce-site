@@ -19,9 +19,9 @@ const Products = () => {
     }, [products])
 
     return (
-        <div>
-            <h1>Products</h1>
-            <div className="grid grid-cols-3 gap-20 mx-20">
+        <div className="max-w-7xl mx-auto">
+            <h1 className="text-center py-8 text-3xl uppercase font-black">Products</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 mx-20">
 
                 {
                     products?.map((product) => (
